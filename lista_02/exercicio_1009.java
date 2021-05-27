@@ -1,7 +1,5 @@
 import java.io.IOException;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.util.Scanner;
+import java.util.Scanner; 
 /**
  * IMPORTANT: 
  *      O nome da classe deve ser "Main" para que a sua solução execute
@@ -11,23 +9,16 @@ import java.util.Scanner;
 public class Main {
  
     public static void main(String[] args) throws IOException {
-        char nome; 
+       char nome; 
         String total2;
-        double sal, vendas, total, comissão, total3; 
+        double sal, vendas, total, comissao, total3; 
         Scanner leitor = new Scanner(System.in);
         nome = leitor.next().charAt(0);
         sal = leitor.nextDouble();
         vendas = leitor.nextDouble();
-        comissão = vendas * (15/100f);
-        total = sal + comissão;
-        DecimalFormat df = new DecimalFormat("0.0");
-        df.setMaximumFractionDigits(2); 
-        df.setRoundingMode(RoundingMode.FLOOR);
-        total2 = df.format(total);
-        total2 = total2.replaceAll(",", ".");
-        total3 = Double.parseDouble(total2);
-        System.out.printf("TOTAL = %.2f\n", total3);
-        
+        comissao = vendas * 0.15;
+        total = sal + comissao;
+        System.out.println("TOTAL = R$ " + String.format("%.2f", total));
     }
  
 }
